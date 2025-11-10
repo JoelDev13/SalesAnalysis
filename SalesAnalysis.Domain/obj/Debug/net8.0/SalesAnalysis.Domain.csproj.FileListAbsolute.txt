@@ -1,0 +1,12 @@
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.csproj.AssemblyReference.cache
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.AssemblyInfoInputs.cache
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.AssemblyInfo.cs
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.csproj.CoreCompileInputs.cache
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\bin\Debug\net8.0\SalesAnalysis.Domain.deps.json
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\bin\Debug\net8.0\SalesAnalysis.Domain.dll
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\bin\Debug\net8.0\SalesAnalysis.Domain.pdb
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.dll
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\refint\SalesAnalysis.Domain.dll
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\SalesAnalysis.Domain.pdb
+C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Domain\obj\Debug\net8.0\ref\SalesAnalysis.Domain.dll

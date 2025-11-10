@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "eaRnqbKow7Y=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\la\\Desktop\\Programacion\\Itla\\Electiva1\\SalesAnalysis\\SalesAnalysis.Domain\\SalesAnalysis.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\la\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512",
+    "C:\\Users\\la\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\la\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
