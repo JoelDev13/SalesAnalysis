@@ -10,6 +10,10 @@ El proyecto sigue una arquitectura Onion/Clean para aislar la lógica de dominio
 - **Worker (SalesAnalysis.Worker)**: Servicio hospedado en segundo plano que ejecuta el proceso ETL de forma periódica usando las capas anteriores y respetando los intervalos configurados.
 - **API y Web**: Adaptadores REST/MVC que permiten disparar o visualizar la información (por completar en fases posteriores si se requiere UI o dashboards adicionales).
 
+## 3.1 Arquitectura
+
+![Diagrama de Arquitectura](Recursos/Diagrama/Diagrama%20de%20arquitectura.png)
+
 ## 2. Flujo ETL
 
 1. **Extracción**
@@ -44,50 +48,5 @@ El proyecto sigue una arquitectura Onion/Clean para aislar la lógica de dominio
 - `SalesAnalysis.Worker` habilita `UserSecretsId` para almacenar credenciales sensibles fuera del control de código.
 - HttpClient nombrado (`CustomerEtlOptionsDefaults.ApiClientName`) configura la URL base automáticamente.
 
-```mermaid
-graph TD
-    subgraph Presentación
-        API[SalesAnalysis.Api]
-        Worker[SalesAnalysis.Worker]
-    end
-    subgraph Aplicación
-        CustomerService[CustomerService (caso de uso)]
-    end
-    subgraph Dominio
-        Interfaces[IExtractor\nITransformer\nIDataLoader\nILoggerService\nIEtlService\nIStagingWriter]
-        Entidades[Entidades de dominio]
-        Opciones[CustomerEtlOptions]
-    end
-    subgraph Persistencia
-        Extractores[CsvExtractor\nDatabaseExtractor\nApiExtractor]
-        Transformer[CustomerTransformer]
-        Loader[EfCoreDataLoader]
-        Logger[StandardLoggerService]
-        Staging[StagingFileWriter]
-        DbContext[AppDbContext]
-        Factory[ExtractorFactory]
-    end
-    subgraph SistemasExternos[Sistemas Externos]
-        Csv[Archivo CSV]
-        SqlSrc[BD transaccional]
-        ApiExt[API REST]
-        SqlDW[BD analítica]
-        StagingFiles[Archivos JSON]
-    end
-    API --> CustomerService
-    Worker --> CustomerService
-    CustomerService --> Interfaces
-    Interfaces --> Extractores
-    Interfaces --> Transformer
-    Interfaces --> Loader
-    Interfaces --> Logger
-    Interfaces --> Staging
-    Loader --> DbContext
-    DbContext --> SqlDW
-    Extractores --> Csv
-    Extractores --> SqlSrc
-    Extractores --> ApiExt
-    Staging --> StagingFiles
-```
 
 
