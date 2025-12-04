@@ -1,7 +1,10 @@
-﻿namespace SalesAnalysis.Domain.Entities.Csv
+﻿using CsvHelper.Configuration.Attributes;
+
+namespace SalesAnalysis.Domain.Entities.Csv
 {
     public class ProductCsv
     {
+        [Name("ProductID")]
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string Category { get; set; }

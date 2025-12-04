@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using SalesAnalysis.Application.Interfaces;
+using SalesAnalysis.Domain.Interfaces;
 using SalesAnalysis.Domain.Configuration;
 
 namespace SalesAnalysis.Worker
@@ -28,18 +28,20 @@ namespace SalesAnalysis.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var interval = TimeSpan.FromMinutes(Math.Max(1, _options.RunIntervalMinutes));
+            var interval = TimeSpan.FromMinutes(1); // cada minuto
             _logger.LogInformation("Worker started. Interval: {Interval} minutes", interval.TotalMinutes);
 
             while (!stoppingToken.IsCancellationRequested)
             {
                 using var scope = _serviceProvider.CreateScope();
-                var customerService = scope.ServiceProvider.GetRequiredService<ICustomerService>();
+                var comprehensiveEtlService = scope.ServiceProvider.GetRequiredService<IComprehensiveEtlService>();
 
                 try
                 {
-                    var inserted = await customerService.RunEtlAsync(stoppingToken);
-                    _logger.LogInformation("ETL cycle completed. Records inserted: {Records}", inserted);
+                    var result = await comprehensiveEtlService.RunCompleteEtlAsync(stoppingToken);
+                    _logger.LogInformation("Complete ETL cycle completed. Customers: {Customers}, Products: {Products}, Orders: {Orders}, OrderDetails: {OrderDetails}, DimCustomers: {DimCustomers}, DimProducts: {DimProducts}, DimDates: {DimDates}", 
+                        result.CustomersProcessed, result.ProductsProcessed, result.OrdersProcessed, result.OrderDetailsProcessed, 
+                        result.DimCustomersProcessed, result.DimProductsProcessed, result.DimDatesProcessed);
                 }
                 catch (OperationCanceledException)
                 {

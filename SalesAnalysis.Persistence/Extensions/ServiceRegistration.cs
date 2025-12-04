@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using SalesAnalysis.Domain.Configuration;
 using SalesAnalysis.Domain.Factories;
 using SalesAnalysis.Domain.Interfaces;
+using SalesAnalysis.Domain.Interfaces.Repositories;
 using SalesAnalysis.Persistence.Data;
 using SalesAnalysis.Persistence.Extractors;
 using SalesAnalysis.Persistence.Factories;
@@ -50,6 +51,29 @@ namespace SalesAnalysis.Persistence.Extensions
 
             // Data loaders
             services.AddScoped<IDataLoader<Domain.Entities.Db.Customer>, EfCoreDataLoader<Domain.Entities.Db.Customer>>();
+            services.AddScoped<IDataLoader<Domain.Entities.Db.Product>, EfCoreDataLoader<Domain.Entities.Db.Product>>();
+            services.AddScoped<IDataLoader<Domain.Entities.Db.Order>, EfCoreDataLoader<Domain.Entities.Db.Order>>();
+            services.AddScoped<IDataLoader<Domain.Entities.Db.OrderDetail>, EfCoreDataLoader<Domain.Entities.Db.OrderDetail>>();
+
+            // Dimension repositories
+            services.AddScoped<IDimCustomerRepository, DimCustomerRepository>();
+            services.AddScoped<IDimProductRepository, DimProductRepository>();
+            services.AddScoped<IDimDateRepository, DimDateRepository>();
+
+            // Dimension loader
+            services.AddScoped<DimensionLoader>();
+
+            // Dimension ETL service
+            services.AddScoped<IDimensionEtlService, DimensionEtlService>();
+
+            // Additional ETL services
+            services.AddScoped<ICustomerEtlService, CustomerEtlService>();
+            services.AddScoped<IProductEtlService, ProductEtlService>();
+            services.AddScoped<IOrderEtlService, OrderEtlService>();
+            services.AddScoped<IOrderDetailEtlService, OrderDetailEtlService>();
+
+            // Comprehensive ETL service
+            services.AddScoped<IComprehensiveEtlService, ComprehensiveEtlService>();
 
             // Logger service
             services.AddSingleton<ILoggerService, StandardLoggerService>();

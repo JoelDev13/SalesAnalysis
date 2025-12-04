@@ -1,4 +1,3 @@
-using SalesAnalysis.Application.Extensions;
 using SalesAnalysis.Domain.Extensions;
 using SalesAnalysis.Persistence.Extensions;
 using SalesAnalysis.Worker;
@@ -8,7 +7,6 @@ var host = Host.CreateDefaultBuilder(args)
     {
         services
             .AddDomainLayer()
-            .AddApplicationLayer()
             .AddPersistenceLayer(context.Configuration);
 
         services.AddHostedService<Worker>();
