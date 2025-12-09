@@ -9,7 +9,7 @@ using SalesAnalysis.Domain.Entities.Db;
 using SalesAnalysis.Domain.Interfaces;
 using SalesAnalysis.Domain.DTOs;
 
-namespace SalesAnalysis.Persistence.Services
+namespace SalesAnalysis.Application.Services
 {
     public class OrderEtlService : IOrderEtlService
     {

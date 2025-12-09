@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using SalesAnalysis.Domain.Configuration;
 using SalesAnalysis.Domain.Entities.Api;
@@ -11,10 +8,8 @@ using SalesAnalysis.Domain.Entities.Csv;
 using SalesAnalysis.Domain.Entities.Db;
 using SalesAnalysis.Domain.Factories;
 using SalesAnalysis.Domain.Interfaces;
-using SalesAnalysis.Persistence.Loaders;
-using SalesAnalysis.Persistence.Transformers;
 
-namespace SalesAnalysis.Persistence.Services
+namespace SalesAnalysis.Application.Services
 {
     public class EtlService : IEtlService
     {

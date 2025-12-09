@@ -53,6 +53,10 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -175,6 +179,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\la\\Desktop\\Programacion\\Itla\\Electiva1\\SalesAnalysis\\SalesAnalysis.Application\\SalesAnalysis.Application.csproj": {
+                "projectPath": "C:\\Users\\la\\Desktop\\Programacion\\Itla\\Electiva1\\SalesAnalysis\\SalesAnalysis.Application\\SalesAnalysis.Application.csproj"
+              },
               "C:\\Users\\la\\Desktop\\Programacion\\Itla\\Electiva1\\SalesAnalysis\\SalesAnalysis.Domain\\SalesAnalysis.Domain.csproj": {
                 "projectPath": "C:\\Users\\la\\Desktop\\Programacion\\Itla\\Electiva1\\SalesAnalysis\\SalesAnalysis.Domain\\SalesAnalysis.Domain.csproj"
               }

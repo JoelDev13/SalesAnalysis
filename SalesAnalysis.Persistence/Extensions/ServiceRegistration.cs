@@ -61,26 +61,36 @@ namespace SalesAnalysis.Persistence.Extensions
             services.AddScoped<IDimDateRepository, DimDateRepository>();
 
             // Dimension loader
-            services.AddScoped<DimensionLoader>();
+            services.AddScoped<Application.Services.DimensionLoader>();
+
+
+            // Fact loader
+            services.AddScoped<IFactLoader<Domain.Entities.Facts.FactSales>, FactLoaderService>();
+
+            // Table cleaning service
+            services.AddScoped<ITableCleaningService, TableCleaningService>();
+
+            // Fact repository
+            services.AddScoped<IFactSalesRepository, FactSalesRepository>();
 
             // Dimension ETL service
-            services.AddScoped<IDimensionEtlService, DimensionEtlService>();
+            services.AddScoped<IDimensionEtlService, Application.Services.DimensionEtlService>();
 
             // Additional ETL services
-            services.AddScoped<ICustomerEtlService, CustomerEtlService>();
-            services.AddScoped<IProductEtlService, ProductEtlService>();
-            services.AddScoped<IOrderEtlService, OrderEtlService>();
-            services.AddScoped<IOrderDetailEtlService, OrderDetailEtlService>();
+            services.AddScoped<ICustomerEtlService, Application.Services.CustomerEtlService>();
+            services.AddScoped<IProductEtlService, Application.Services.ProductEtlService>();
+            services.AddScoped<IOrderEtlService, Application.Services.OrderEtlService>();
+            services.AddScoped<IOrderDetailEtlService, Application.Services.OrderDetailEtlService>();
 
             // Comprehensive ETL service
-            services.AddScoped<IComprehensiveEtlService, ComprehensiveEtlService>();
+            services.AddScoped<IComprehensiveEtlService, Application.Services.ComprehensiveEtlService>();
 
             // Logger service
-            services.AddSingleton<ILoggerService, StandardLoggerService>();
-            services.AddSingleton<IStagingWriter, StagingFileWriter>();
+            services.AddSingleton<ILoggerService, Application.Services.StandardLoggerService>();
+            services.AddSingleton<IStagingWriter, Application.Services.StagingFileWriter>();
 
             // ETL service
-            services.AddScoped<IEtlService, EtlService>();
+            services.AddScoped<IEtlService, Application.Services.EtlService>();
 
             return services;
         }

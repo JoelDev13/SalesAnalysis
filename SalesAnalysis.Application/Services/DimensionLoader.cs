@@ -9,7 +9,7 @@ using SalesAnalysis.Domain.Entities.Db;
 using SalesAnalysis.Domain.Interfaces;
 using SalesAnalysis.Domain.Interfaces.Repositories;
 
-namespace SalesAnalysis.Persistence.Services
+namespace SalesAnalysis.Application.Services
 {
     public class DimensionLoader : IDimensionLoader<DimCustomer>, IDimensionLoader<DimProduct>
     {

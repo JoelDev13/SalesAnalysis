@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using SalesAnalysis.Domain.Interfaces;
 
-namespace SalesAnalysis.Persistence.Services
+namespace SalesAnalysis.Application.Services
 {
     public class StandardLoggerService : ILoggerService
     {

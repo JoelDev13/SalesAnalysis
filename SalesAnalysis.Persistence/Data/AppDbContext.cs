@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SalesAnalysis.Domain.Entities.Db;
 using SalesAnalysis.Domain.Entities.Dimensions;
+using SalesAnalysis.Domain.Entities.Facts;
 
 namespace SalesAnalysis.Persistence.Data
 {
@@ -19,6 +20,9 @@ namespace SalesAnalysis.Persistence.Data
         public DbSet<DimCustomer> DimCustomers => Set<DimCustomer>();
         public DbSet<DimProduct> DimProducts => Set<DimProduct>();
         public DbSet<DimDate> DimDates => Set<DimDate>();
+
+        // Fact tables
+        public DbSet<FactSales> FactSales => Set<FactSales>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,7 +43,7 @@ namespace SalesAnalysis.Persistence.Data
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
-                entity.Property(e => e.ProductId).ValueGeneratedOnAdd();
+                entity.Property(e => e.ProductId).ValueGeneratedNever();
                 entity.Property(e => e.ProductName).HasMaxLength(200);
                 entity.Property(e => e.Category).HasMaxLength(100);
                 entity.Property(e => e.Price).HasColumnType("decimal(18,2)");
@@ -48,7 +52,7 @@ namespace SalesAnalysis.Persistence.Data
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.OrderId);
-                entity.Property(e => e.OrderId).ValueGeneratedOnAdd();
+                entity.Property(e => e.OrderId).ValueGeneratedNever();
                 entity.Property(e => e.Status).HasMaxLength(50);
 
                 entity.HasOne<Customer>()
@@ -114,6 +118,40 @@ namespace SalesAnalysis.Persistence.Data
                 entity.HasIndex(e => e.Year);
                 entity.HasIndex(e => new { e.Year, e.Month });
                 entity.HasIndex(e => new { e.Year, e.Quarter });
+            });
+
+            // Fact table configurations
+            modelBuilder.Entity<FactSales>(entity =>
+            {
+                entity.HasKey(e => e.FactSalesId);
+                entity.Property(e => e.FactSalesId).ValueGeneratedOnAdd();
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.TotalAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.DiscountAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.FinalAmount).HasColumnType("decimal(18,2)");
+                entity.Property(e => e.OrderStatus).HasMaxLength(50);
+
+                entity.HasOne(f => f.Customer)
+                    .WithMany()
+                    .HasForeignKey(f => f.CustomerId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(f => f.Product)
+                    .WithMany()
+                    .HasForeignKey(f => f.ProductId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(f => f.Date)
+                    .WithMany()
+                    .HasForeignKey(f => f.DateId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasIndex(f => f.CustomerId);
+                entity.HasIndex(f => f.ProductId);
+                entity.HasIndex(f => f.DateId);
+                entity.HasIndex(f => f.OrderId);
+                entity.HasIndex(f => new { f.DateId, f.CustomerId });
+                entity.HasIndex(f => new { f.DateId, f.ProductId });
             });
         }
     }

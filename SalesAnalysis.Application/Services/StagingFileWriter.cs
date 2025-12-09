@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using SalesAnalysis.Domain.Configuration;
 using SalesAnalysis.Domain.Interfaces;
 
-namespace SalesAnalysis.Persistence.Services
+namespace SalesAnalysis.Application.Services
 {
     public class StagingFileWriter : IStagingWriter
     {

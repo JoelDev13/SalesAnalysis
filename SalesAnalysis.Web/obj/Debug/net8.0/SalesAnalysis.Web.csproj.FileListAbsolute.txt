@@ -28,3 +28,4 @@ C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Web\
 C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Web\obj\Debug\net8.0\SalesAnalysis.Web.pdb
 C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Web\obj\Debug\net8.0\SalesAnalysis.Web.genruntimeconfig.cache
 C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Web\obj\Debug\net8.0\ref\SalesAnalysis.Web.dll
+c:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Web\obj\Debug\net8.0\SalesAnalysis.Web.sourcelink.json

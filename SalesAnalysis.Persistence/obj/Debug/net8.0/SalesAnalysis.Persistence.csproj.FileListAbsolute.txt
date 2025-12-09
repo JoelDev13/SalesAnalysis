@@ -14,3 +14,5 @@ C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Pers
 C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Persistence\obj\Debug\net8.0\SalesAnalysis.Persistence.pdb
 C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Persistence\obj\Debug\net8.0\ref\SalesAnalysis.Persistence.dll
 C:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Persistence\obj\Debug\net8.0\SalesAnalysis.Persistence.sourcelink.json
+c:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Persistence\bin\Debug\net8.0\SalesAnalysis.Application.dll
+c:\Users\la\Desktop\Programacion\Itla\Electiva1\SalesAnalysis\SalesAnalysis.Persistence\bin\Debug\net8.0\SalesAnalysis.Application.pdb

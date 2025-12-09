@@ -970,6 +970,7 @@
       "SalesAnalysis.Application/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
           "SalesAnalysis.Domain": "1.0.0"
         },
         "runtime": {
@@ -998,6 +999,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.21",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.21",
           "Microsoft.Extensions.Http": "8.0.1",
+          "SalesAnalysis.Application": "1.0.0",
           "SalesAnalysis.Domain": "1.0.0",
           "System.Data.SqlClient": "4.9.0"
         },
